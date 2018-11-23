@@ -1,0 +1,16 @@
+{
+  "name": "ovni",
+  "version": "1.0.0",
+  "description": "Application to register supernatural apparitions",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "private": true,
+  "author": "lucasaferrlopes@gmail.com",
+  "license": "ISC",
+  "engines": {
+    "node": "8.11.3",
+    "npm": "6.4.0"
+  }
+}
