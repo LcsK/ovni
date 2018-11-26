@@ -5,7 +5,14 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "lint": "./node_modules/.bin/eslint app.js"
+    "lint": "./node_modules/.bin/eslint app.js",
+    "validate": "npm run lint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run validate",
+      "pre-push": "npm run validate"
+    }
   },
   "private": true,
   "author": "lucasaferrlopes@gmail.com",
@@ -17,6 +24,7 @@
   "devDependencies": {
     "eslint": "^5.9.0",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0"
+    "eslint-plugin-import": "^2.14.0",
+    "husky": "^1.2.0"
   }
 }
