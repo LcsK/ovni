@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
+    "dev": "nodemon app.js",
     "lint": "./node_modules/.bin/eslint app.js",
     "validate": "npm run lint"
   },
@@ -25,6 +26,7 @@
     "eslint": "^5.9.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
-    "husky": "^1.2.0"
+    "husky": "^1.2.0",
+    "nodemon": "^1.18.6"
   }
 }
