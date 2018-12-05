@@ -17,8 +17,9 @@ const create = async (req, res) => {
     description,
     date,
     location,
+    category,
   } = req.body;
-  const result = await model.create(title, description, date, location);
+  const result = await model.create(title, description, date, location, category);
   res.status(200).json(result);
 };
 
@@ -31,9 +32,10 @@ const update = async (req, res) => {
       description,
       date,
       location,
+      category,
     },
   } = req;
-  const result = await model.update(id, title, description, date, location);
+  const result = await model.update(id, title, description, date, location, category);
   res.status(200).json(result);
 };
 

@@ -24,11 +24,11 @@ const byId = async (id) => {
   }
 };
 
-const create = async (title, description, date, location) => {
-  const query = 'insert into apparition (title, description, date, location) values ($1, $2, $3, $4);';
+const create = async (title, description, date, location, category) => {
+  const query = 'insert into apparition (title, description, date, location, category) values ($1, $2, $3, $4, $5);';
   const db = await pool.connect();
   try {
-    await db.query(query, [title, description, date, location]);
+    await db.query(query, [title, description, date, location, category]);
     return { ok: true };
   } catch (error) {
     console.error(error);
@@ -36,11 +36,11 @@ const create = async (title, description, date, location) => {
   }
 };
 
-const update = async (id, name, description, date, location) => {
-  const query = 'update apparition set title = $1, description = $2, date = $3, location = $4 where id = $5';
+const update = async (id, name, description, date, location, category) => {
+  const query = 'update apparition set title = $1, description = $2, date = $3, location = $4, category = $5 where id = $6';
   const db = await pool.connect();
   try {
-    await db.query(query, [name, description, date, location, id]);
+    await db.query(query, [name, description, date, location, category, id]);
     return { ok: true };
   } catch (error) {
     console.error(error);
