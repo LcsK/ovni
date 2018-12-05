@@ -16,6 +16,7 @@ module.exports = (app) => {
   api.use('/category', category(Router));
 
   app.use('/api', api);
+  app.get('/', (req, res) => res.status(200).send('<h1>Access /api/category to work with categories, and /api/apparition to work with apparitions</h1>'));
   setup(app);
   return app;
 };
