@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 const { Router } = express;
 
@@ -21,7 +22,7 @@ const allowCrossDomain = (req, res, next) => {
 };
 
 
-module.exports = (app) => {
+module.exports = (app, dirname) => {
   app.use(allowCrossDomain);
   const api = Router();
 
@@ -31,7 +32,7 @@ module.exports = (app) => {
   api.use('/category', category(Router));
 
   app.use('/api', api);
-  app.get('/', (req, res) => res.status(200).send('<h1>Access /api/category to work with categories, and /api/apparition to work with apparitions</h1>'));
+  app.use('/', express.static(path.join(dirname, 'client')));
   setup(app);
   return app;
 };

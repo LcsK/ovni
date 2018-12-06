@@ -9,6 +9,6 @@ const server = require('./server');
 
 const app = express();
 
-server(app);
+server(app, __dirname);
 
 module.exports = app;

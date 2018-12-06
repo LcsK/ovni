@@ -25,11 +25,11 @@ const byId = async (id) => {
 };
 
 const create = async (title, description, date, location, category) => {
-  const query = 'insert into apparition (title, description, date, location, category) values ($1, $2, $3, $4, $5);';
+  const query = 'insert into apparition (title, description, date, location, category) values ($1, $2, $3, $4, $5) returning id;';
   const db = await pool.connect();
   try {
-    await db.query(query, [title, description, date, location, category]);
-    return { ok: true };
+    const result = await db.query(query, [title, description, date, location, category]);
+    return { ok: true, id: result.rows[0].id };
   } catch (error) {
     console.error(error);
     return { ok: false };
